@@ -21,7 +21,7 @@ COPY . .
 RUN tsc
 
 # Expose the port your app runs on
-EXPOSE 8000
+EXPOSE 8001
 
 # Command to run your app
 CMD ["node", "dist/server.js"]
