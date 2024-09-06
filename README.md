@@ -100,7 +100,7 @@ Once the server is running, you can access the CRUD endpoints at http://localhos
 
 Example Endpoints:
 - GET /api/contacts - Get all contacts
-- POST api/contacts - Create a new contact
+- POST /api/contacts - Create a new contact
 - PUT /api/contacts/:id - Update a contact by ID (not use in this case)
 - DELETE /api/contacts/:id - Delete a contact by ID
 - PUT /api/contacts/:id/status - Update contact status
