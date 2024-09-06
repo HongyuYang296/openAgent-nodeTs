@@ -39,7 +39,7 @@ The following libraries and tools are used in this project:
 │   ├── models      # Data models (e.g., Contact model)
 │   ├── services    # Business logic services
 │   ├── routes      # Express routes to handle API requests
-│   ├── app.ts      # Main app configuration
+│   ├── database.ts # Manage the SQLite
 │   └── server.ts   # Entry point of the application
 ├── .eslintrc.json  # ESLint configuration with flat config
 ├── package.json    # Dependencies and scripts
@@ -62,7 +62,7 @@ Ensure you have the following installed on your system:
 Clone the repository from GitHub:
 
 ```bash
-git clone https://github.com/<your-username>/openAgent-nodeTs.git
+git clone https://github.com/HongyuYang296/openAgent-nodeTs.git
 cd openAgent-nodeTs
 ```
 ### Step 2: Install Dependencies
