@@ -45,6 +45,7 @@ The following libraries and tools are used in this project:
 ├── package.json    # Dependencies and scripts
 ├── tsconfig.json   # TypeScript configuration
 └── .env            # Environment variables (not included in version control)
+```
 
 ## Getting Started
 
@@ -98,11 +99,11 @@ This will start the server on the port specified in the .env file (default: 8001
 Once the server is running, you can access the CRUD endpoints at http://localhost:<PORT>, where <PORT> is the port you set in the .env file (default: 8001).
 
 Example Endpoints:
-GET /contacts - Get all contacts
-POST /contacts - Create a new contact
-PUT /contacts/
+- GET /contacts - Get all contacts
+- POST /contacts - Create a new contact
+- PUT /contacts/
 - Update a contact by ID
-DELETE /contacts/
+- DELETE /contacts/
 - Delete a contact by ID
 Available Scripts
 Here are some useful scripts available in the project:
