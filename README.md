@@ -99,12 +99,12 @@ This will start the server on the port specified in the .env file (default: 8001
 Once the server is running, you can access the CRUD endpoints at http://localhost:<PORT>, where <PORT> is the port you set in the .env file (default: 8001).
 
 Example Endpoints:
-- GET /contacts - Get all contacts
-- POST /contacts - Create a new contact
-- PUT /contacts/
-- Update a contact by ID
-- DELETE /contacts/
-- Delete a contact by ID
+- GET /api/contacts - Get all contacts
+- POST api/contacts - Create a new contact
+- PUT /api/contacts/:id - Update a contact by ID (not use in this case)
+- DELETE /api/contacts/:id - Delete a contact by ID
+- PUT /api/contacts/:id/status - Update contact status
+  
 Available Scripts
 Here are some useful scripts available in the project:
 
