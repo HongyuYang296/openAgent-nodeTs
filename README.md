@@ -41,7 +41,7 @@ The following libraries and tools are used in this project:
 │   ├── routes      # Express routes to handle API requests
 │   ├── database.ts # Manage the SQLite
 │   └── server.ts   # Entry point of the application
-├── .eslintrc.json  # ESLint configuration with flat config
+├── eslint.config.js# ESLint configuration with flat config
 ├── package.json    # Dependencies and scripts
 ├── tsconfig.json   # TypeScript configuration
 └── .env            # Environment variables (not included in version control)
