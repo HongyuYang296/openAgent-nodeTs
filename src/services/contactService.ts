@@ -1,4 +1,5 @@
 import * as ContactDAL from '../dals/contactDAL.js';
+import { updateContactStatus } from '../dals/contactDAL.js';
 import { Contact } from '../models/contact.js';
 
 // Fetch all contacts
@@ -24,4 +25,15 @@ export const updateContact = async (id: number, contact: Contact): Promise<void>
 // Delete a contact
 export const deleteContact = async (id: number): Promise<void> => {
   return ContactDAL.deleteContact(id);
+};
+
+//Update status
+export const changeContactStatus = async (contactId: number): Promise<void> => {
+  const status = 'Verified'; // Hardcode the status to "Verified"
+
+  if (!contactId) {
+    throw new Error('Invalid input');
+  }
+
+  await updateContactStatus(contactId, status);
 };

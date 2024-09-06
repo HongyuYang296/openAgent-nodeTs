@@ -31,6 +31,33 @@ export const initializeDatabase = async () => {
       )
     `);
 
+    // Check if the 'time' column exists and add it if not
+    const tableInfo = await db.all(`PRAGMA table_info(contacts)`);
+
+    const hasTimeColumn = tableInfo.some(column => column.name === 'time');
+    const hasStatusColumn = tableInfo.some(column => column.name === 'status');
+
+    if (!hasTimeColumn) {
+      await db.exec(`
+        ALTER TABLE contacts
+        ADD COLUMN time TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+      `);
+      console.log('Added "time" column to contacts table.');
+    } else {
+      console.log('"time" column already exists in contacts table.');
+    }
+
+    // Check if the 'status' column exists and add it if not
+    if (!hasStatusColumn) {
+      await db.exec(`
+        ALTER TABLE contacts
+        ADD COLUMN status TEXT NOT NULL DEFAULT 'Unverified'
+      `);
+      console.log('Added "status" column to contacts table.');
+    } else {
+      console.log('"status" column already exists in contacts table.');
+    }
+
     console.log('Database initialization successful.');
     return db;
   } catch (error) {

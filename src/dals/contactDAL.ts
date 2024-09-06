@@ -9,15 +9,12 @@ export const getAllContacts = async (): Promise<Contact[]> => {
 
 // Add a new contact
 export const addContact = async (contact: Contact): Promise<void> => {
-  const { firstName, lastName, email, phone, additionalInfo } = contact;
+  const { firstName, lastName, email, phone, additionalInfo, time } = contact;
   const db = await getDb();
-  await db.run(`INSERT INTO contacts (firstName, lastName, email, phone, additionalInfo) VALUES (?, ?, ?, ?, ?)`, [
-    firstName,
-    lastName,
-    email,
-    phone,
-    additionalInfo
-  ]);
+  await db.run(
+    `INSERT INTO contacts (firstName, lastName, email, phone, additionalInfo, time) VALUES (?, ?, ?, ?, ?, ?)`,
+    [firstName, lastName, email, phone, additionalInfo, time]
+  );
 };
 
 // Fetch a single contact by ID
@@ -28,11 +25,11 @@ export const getContactById = async (id: number): Promise<Contact | undefined> =
 
 // Update a contact by ID
 export const updateContact = async (id: number, contact: Contact): Promise<void> => {
-  const { firstName, lastName, email, phone, additionalInfo } = contact;
+  const { firstName, lastName, email, phone, additionalInfo, time } = contact;
   const db = await getDb();
   await db.run(
-    `UPDATE contacts SET firstName = ?, lastName = ?, email = ?, phone = ?, additionalInfo = ? WHERE id = ?`,
-    [firstName, lastName, email, phone, additionalInfo, id]
+    `UPDATE contacts SET firstName = ?, lastName = ?, email = ?, phone = ?, additionalInfo = ?, time = ? WHERE id = ?`,
+    [firstName, lastName, email, phone, additionalInfo, time, id]
   );
 };
 
@@ -40,4 +37,10 @@ export const updateContact = async (id: number, contact: Contact): Promise<void>
 export const deleteContact = async (id: number): Promise<void> => {
   const db = await getDb();
   await db.run('DELETE FROM contacts WHERE id = ?', [id]);
+};
+
+//Update contact status
+export const updateContactStatus = async (contactId: number, status: string): Promise<void> => {
+  const db = await getDb();
+  await db.run(`UPDATE contacts SET status = ? WHERE id = ?`, [status, contactId]);
 };

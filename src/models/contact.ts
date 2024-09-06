@@ -5,4 +5,6 @@ export interface Contact {
   email: string;
   phone: string;
   additionalInfo?: string;
+  time: string;
+  status: string;
 }
